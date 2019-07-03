@@ -12,11 +12,11 @@ import { createStore} from 'redux';
 import { Provider, connect } from 'react-redux';
 import { composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import { setUser } from './actions';
+import { setUser, clearUser } from './actions';
 
 
-// store the return value from executing we create sotre function 
-const store = createStore( rootReducer, composeWithDevTools());
+const store = createStore( rootReducer, composeWithDevTools()); // store the return value from executing we create sotre function 
+
 
 
 class Root extends React.Component {
@@ -28,6 +28,10 @@ class Root extends React.Component {
                 // access user data
                 this.props.setUser(user);
                 this.props.history.push('/'); // redirect them to home route
+            } else { 
+                this.props.history.push('/login'); // user is not found by the listener
+                this.props.clearUser(); // clear out user from the global state
+
             }
         })
     }
@@ -51,7 +55,7 @@ const mapStateFromProps = state => ({
 const RootWithAuth = withRouter(
     connect(
         mapStateFromProps, 
-        { setUser }
+        { setUser, clearUser }
     )(Root)
 );
 
