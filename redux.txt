@@ -1,0 +1,30 @@
+﻿
+1.로그인하면 인증된 사용자로 상태가 변한다.
+2. 유저 데이터에 접근하는 많은 컴포넌트를 생성
+3. 유저 데이터에 접근하고 global 상태에 데이터를 놓는 setuser(user) 함수를 생성
+4.  이를 위해 redux 시스템을 이용한다.
+5.  gloabl state를 만들기 위해서 store 변수를 생성한다.
+6  global state를 생성하기 위해서 Provider를 이용하는데 이는 global state를 아무 컴포넌트에게 제공한다.
+attr로 state를 주입한다.
+6.  action 폴더와 그 안에 index.js와 types.js 파일을 만든다.
+7.  types는 우리가 글로벌 state를 어떤 타입으로 만들건지를 결정한다
+8.  index.js에서 action folder를 임포트한다.
+9.  setUser는 user 데이터를 인자로 받고  type:actionTypes.SET_USER과 payload를 리턴한다.
+10. 액션은 상태가 변할 데이터를 전달하는 역할을 담당한다.
+11. payload는 전달받은 유저데이터를 currentuser로 지정하는 역할
+12. 실제로 세팅된 유저 state를 실행할 리듀서 함수를 만든다.
+13. index.js 파일에 actionTypes를 import한다.
+14. user_reducer 유저 관련한 데이터를 reduce하는 역할 인자로 state와 action을 받는다.
+바뀐 state를 update하기 위해서 우선 currentUser data를 받고 
+isLoading property를 세팅하는데 false로 현재 상태를 표시한다.
+15. default case로 어떠한 reducer도 action를 매치하지 못하는 경우에 
+16 initialUserState를 만들고 currentUser: null , isLoading : true로 생성
+17.  user_reducer는 단지 우리의 유저 prop을 global state로 업데이트하는 역할을 한다.
+18. root reducer를 만들고 combinedReducers를 import한다. 이는 우리가 주어진 reducer update의 global state에 있는 어떤 prop가 combine reducers를 include 할것인지 결정할수있도록 한다. 
+19. user state를 user_reducer로 업데이트하고 rootReducer를 export한다.
+20.  src/index.js 의 store 변수에 전체 state 객체를 저장하기 위해서 rootReducer를 인자로 받는다.
+21. user data를 setUser action과 함께 global state로 세팅하기 위해서 connect function 이 필요하다.
+22. connect가 주어진 리액트 컴포넌트에 대한 이전 state action를 연결하고 읽게 해준다.  
+23. mapDispatchToProps, 여기서 우리가 actions를 얻고 setUser를 연결해준다.
+24. action 폴더에 있는 setUser를 import해준다. 
+25. connect와 map는 CONNECT로 감싼 컴포넌트의 props 객체를 this.props.setuser(user)와 같이 prop를 얻을수있게해준다.
