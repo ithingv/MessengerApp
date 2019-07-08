@@ -96,12 +96,12 @@ class UserPanel extends React.Component{
                 />
                 <Grid centered stackable columns={2}>
                   <Grid.Row centered>
-                    <Gird.Column className="ui center aligned grid">
+                    <Grid.Column className="ui center aligned grid">
                       {/* Image Preview */}
-                    </Gird.Column>
-                    <Gird.Column>
+                    </Grid.Column>
+                    <Grid.Column>
                       {/* Criooed Image Preview */}
-                    </Gird.Column>
+                    </Grid.Column>
                   </Grid.Row>
                 </Grid>
             </Modal.Content>
