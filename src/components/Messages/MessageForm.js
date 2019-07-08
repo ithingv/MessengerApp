@@ -35,12 +35,12 @@ class MessageForm extends React.Component {
 
     if(message) {
       typingRef
-        .child(chnnel.id)
+        .child(channel.id)
         .child(user.uid)
         .set(user.displayName)
     } else {
       typingRef
-        .child(chnnel.id)
+        .child(channel.id)
         .child(user.uid)
         .remove();
     }
@@ -76,7 +76,7 @@ class MessageForm extends React.Component {
         .then(() => {
           this.setState({ loading: false, message: "", errors: [] });
           typingRef
-            .child(chnnel.id)
+            .child(channel.id)
             .child(user.uid)
             .remove();
         })
