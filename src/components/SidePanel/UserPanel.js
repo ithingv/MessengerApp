@@ -94,7 +94,7 @@ class UserPanel extends React.Component{
                 label="New Avatar"
                 name="previewImage"
                 />
-                <Gird centered stackable columns={2}>
+                <Grid centered stackable columns={2}>
                   <Grid.Row centered>
                     <Gird.Column className="ui center aligned grid">
                       {/* Image Preview */}
@@ -103,7 +103,7 @@ class UserPanel extends React.Component{
                       {/* Criooed Image Preview */}
                     </Gird.Column>
                   </Grid.Row>
-                </Gird>
+                </Grid>
             </Modal.Content>
             <Modal.Actions>
                 <Button color="green" inverted>
